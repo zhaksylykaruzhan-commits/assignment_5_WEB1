@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Task 3 - Ticket builder</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="task3.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="index.html">Assignment 5</a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="task1.html">Task 1</a>
+        <a href="task2.html">Task 2</a>
+        <a href="task3.html" aria-current="page">Task 3</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Ticket builder</h1>
+    <p class="lead">Fill in the form. The ticket on the right changes while you type. Every field is checked when you leave it and then on every change.</p>
+
+    <div class="layout">
+      <section class="card" aria-labelledby="formTitle">
+        <h2 id="formTitle">Book your ticket</h2>
+
+        <div class="message message--bad summary hidden" id="summary" role="alert" tabindex="-1"></div>
+
+        <form id="ticketForm" novalidate>
+          <div class="form-grid">
+            <div class="field field--wide" data-field="event">
+              <label class="field__label" for="event">Event</label>
+              <select class="field__control" id="event" name="event" required aria-describedby="event-error"></select>
+              <span class="field__error" id="event-error"></span>
+            </div>
+
+            <div class="field" data-field="date">
+              <label class="field__label" for="date">Date</label>
+              <input class="field__control" id="date" name="date" type="date" required aria-describedby="date-hint date-error">
+              <span class="field__hint" id="date-hint">Up to 120 days ahead</span>
+              <span class="field__error" id="date-error"></span>
+            </div>
+
+            <div class="field" data-field="type">
+              <label class="field__label" for="type">Ticket type</label>
+              <select class="field__control" id="type" name="type" required aria-describedby="type-error"></select>
+              <span class="field__error" id="type-error"></span>
+            </div>
+
+            <div class="field" data-field="quantity">
+              <label class="field__label" for="quantity">Quantity</label>
+              <input class="field__control" id="quantity" name="quantity" type="number" min="1" max="10" step="1" required inputmode="numeric" aria-describedby="quantity-hint quantity-error">
+              <span class="field__hint" id="quantity-hint">From 1 to 10 tickets</span>
+              <span class="field__error" id="quantity-error"></span>
+            </div>
+
+            <div class="field" data-field="promo">
+              <label class="field__label" for="promo">Promo code (optional)</label>
+              <input class="field__control" id="promo" name="promo" type="text" maxlength="20" autocomplete="off" aria-describedby="promo-error">
+              <span class="field__error" id="promo-error"></span>
+            </div>
+
+            <div class="field" data-field="name">
+              <label class="field__label" for="name">Full name</label>
+              <input class="field__control" id="name" name="name" type="text" required minlength="3" maxlength="60" autocomplete="name" aria-describedby="name-hint name-error">
+              <span class="field__hint" id="name-hint">Name and surname</span>
+              <span class="field__error" id="name-error"></span>
+            </div>
+
+            <div class="field" data-field="email">
+              <label class="field__label" for="email">Email</label>
+              <input class="field__control" id="email" name="email" type="email" required autocomplete="email" aria-describedby="email-error">
+              <span class="field__error" id="email-error"></span>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn">Book ticket</button>
+            <button type="reset" class="btn btn--ghost" id="resetBtn">Clear form</button>
+          </div>
+        </form>
+      </section>
+
+      <aside aria-labelledby="previewTitle">
+        <h2 id="previewTitle">Ticket preview</h2>
+        <div class="ticket" id="preview" aria-live="polite"></div>
+        <div id="result"></div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">Zhaksylyk Aruzhan, group IT-2511, Astana IT University</footer>
+</body>
+</html>

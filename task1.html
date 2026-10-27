@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Task 1 - Higher or Lower</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="task1.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="index.html">Assignment 5</a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="task1.html" aria-current="page">Task 1</a>
+        <a href="task2.html">Task 2</a>
+        <a href="task3.html">Task 3</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Higher or Lower</h1>
+    <p class="lead">Is the price of the next gadget higher or lower than the current one? Equal prices count as a right guess. You have 3 lives. Reach the winning streak to win.</p>
+
+    <section class="game" id="game" aria-label="Game">
+      <div class="stats">
+        <div class="stat">
+          <span class="stat__label">Lives</span>
+          <span class="stat__value" id="lives" aria-live="polite"></span>
+        </div>
+        <div class="stat">
+          <span class="stat__label">Streak</span>
+          <span class="stat__value" id="streak">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat__label">Best streak</span>
+          <span class="stat__value" id="best">0</span>
+        </div>
+      </div>
+
+      <div class="round">
+        <div class="card item">
+          <div class="item__label">Current item</div>
+          <div class="item__name" id="currentName"></div>
+          <div class="item__value" id="currentValue"></div>
+        </div>
+        <div class="card item item--hidden" id="nextCard">
+          <div class="item__label">Next item</div>
+          <div class="item__name" id="nextName">Next gadget</div>
+          <div class="item__value" id="nextValue">?</div>
+        </div>
+      </div>
+
+      <div class="game-controls">
+        <button type="button" class="btn" id="higherBtn">Higher (H)</button>
+        <button type="button" class="btn" id="lowerBtn">Lower (L)</button>
+      </div>
+
+      <form class="typed-form" id="typedForm" novalidate>
+        <label class="field__label" for="typedGuess">Or type your guess:</label>
+        <input class="field__control typed-input" id="typedGuess" name="typedGuess" type="text" autocomplete="off" placeholder="higher or lower">
+        <button type="submit" class="btn btn--ghost" id="typedBtn">Guess</button>
+      </form>
+
+      <div class="message message--info" id="message" role="status" aria-live="polite"></div>
+
+      <div class="banner hidden" id="banner"></div>
+
+      <div class="game-controls">
+        <button type="button" class="btn btn--ghost" id="restartBtn">Restart game</button>
+      </div>
+
+      <section class="card" aria-labelledby="logTitle">
+        <h2 id="logTitle">Last moves</h2>
+        <ul class="log" id="log"></ul>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer">Zhaksylyk Aruzhan, group IT-2511, Astana IT University</footer>
+</body>
+</html>
